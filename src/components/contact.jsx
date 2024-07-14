@@ -111,7 +111,7 @@ const ContactUs = () => {
                 </div>
               </form>
             </div>
-            <div className="bg-white p-8 shadow-xl rounded-lg transform transition duration-500 hover:scale-105">
+            <div className="bg-white p-8 shadow-xl rounded-lg transform transition duration-500 hover:scale-105 hidden md:block">
               <h3 className="text-lg font-medium text-gray-900">
                 معلومات الاتصال
               </h3>

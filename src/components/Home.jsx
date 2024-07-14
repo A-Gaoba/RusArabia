@@ -46,7 +46,7 @@ export default function Example() {
         >
           <div className="flex lg:flex-1">
             <span className="text-xl font-medium text-indigo-600 -m-1.5 p-1.5">
-              <a href="#"> RusArabic</a>
+              <a href="#"> RusArabia</a>
             </span>
             <a href="#" className="-m-1.5 p-1.5">
               <img
@@ -60,7 +60,7 @@ export default function Example() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-600"
             >
               <span className="sr-only">فتح القائمة الرئيسية</span>
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -80,7 +80,7 @@ export default function Example() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
               href="#contact"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-bold leading-6 text-indigo-600"
             >
               تواصل معنا <span aria-hidden="true">&rarr;</span>
             </a>
@@ -104,7 +104,7 @@ export default function Example() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 rounded-md p-2.5 text-indigo-600"
               >
                 <span className="sr-only">إغلاق القائمة</span>
                 <XMarkIcon aria-hidden="true" className="h-6 w-6" />
@@ -127,7 +127,7 @@ export default function Example() {
                 <div className="py-6">
                   <a
                     href="#contact"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-indigo-600 hover:bg-gray-50"
                     onClick={closeMobileMenu}
                   >
                     تواصل معنا
@@ -152,9 +152,9 @@ export default function Example() {
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+        <div className="mx-auto max-w-2xl md:py-32 py-16 sm:py-40 lg:py-56">
+          <div className="md:mb-8 mb-4 sm:flex sm:justify-center">
+            <div className="relative rounded-full px-3 py-1 md:text-sm text-xs leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               اكتشف المزيد من عروضنا وخدماتنا.{" "}
               <a href="#offers" className="font-semibold text-indigo-600">
                 <span aria-hidden="true" className="absolute inset-0" />

@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-lg font-medium text-black">عن الشركة</h3>
             <p className="mt-4 text-sm text-gray-400">
               نحن نسعى لتوفير أفضل العروض والخدمات السياحية التي تناسب جميع
@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
           </div>
           {/* Quick Links */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-lg font-medium text-black">روابط سريعة</h3>
             <ul className="mt-4 space-y-2">
               <li>
@@ -100,7 +100,7 @@ const Footer = () => {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8 text-center">
           <p className="text-sm text-gray-800">
-            &copy; 2024 RusArabic. جميع الحقوق محفوظة.
+            &copy; 2024 RusArabia. جميع الحقوق محفوظة.
           </p>
         </div>
       </div>

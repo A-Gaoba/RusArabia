@@ -55,11 +55,11 @@ const TravelForm = () => {
     <div className="bg-gray-50 py-12">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+          <h2 className=" text-2xl font-bold text-indigo-600 mb-4 tracking-wide uppercase">
             حجز رحلة
           </h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            املأ النموذج أدناه لتأكيد حجزك
+            املأ النموذج أدناه, لتأكيد حجزك سيتم التواصل معك
           </p>
         </div>
         <div className="bg-white p-8 shadow-xl rounded-lg">
