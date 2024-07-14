@@ -88,7 +88,7 @@ const Events = () => {
   return (
     <div className="bg-white py-12" id="events">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+        <h2 className="text-indigo-600 font-extrabold text-4xl tracking-wide mb-4">
           فعاليات
         </h2>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

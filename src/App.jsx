@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div dir="rtl" >
-      {/* <Navbar /> */}
       <Hero />
       <AboutUs />
       <Hotels />

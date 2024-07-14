@@ -37,10 +37,10 @@ const ContactUs = () => {
     <div className="py-12" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+          <h2 className="text-indigo-600 font-extrabold text-4xl tracking-wide mb-4">
             تواصل معنا
           </h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-2 leading-8 font-extrabold tracking-tight text-gray-900 text-2xl">
             نحن هنا لمساعدتك
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
@@ -129,11 +129,17 @@ const ContactUs = () => {
                 </li>
               </ul>
               <div className="mt-8 flex justify-center space-x-6 space-x-reverse">
-                <a href="#" className="text-yellow-500 hover:text-yellow-600">
+                <a
+                  href="https://www.snapchat.com/add/yourusername"
+                  className="text-yellow-500 hover:text-yellow-600"
+                >
                   <FaSnapchat className="h-8 w-8" />
                   <span className="sr-only">سناب شات</span>
                 </a>
-                <a href="#" className="text-green-500 hover:text-green-600">
+                <a
+                  href="https://wa.me/+79174828474"
+                  className="text-green-500 hover:text-green-600"
+                >
                   <FaWhatsapp className="h-8 w-8" />
                   <span className="sr-only">واتساب</span>
                 </a>
