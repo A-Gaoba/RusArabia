@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import icon from "../../public/icon.png"
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import TravelForm from "./Form";
@@ -51,7 +52,7 @@ export default function Example() {
             <a href="#" className="-m-1.5 p-1.5">
               <img
                 alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src={icon}
                 className="h-8 w-auto"
               />
             </a>
@@ -97,7 +98,7 @@ export default function Example() {
               <a href="#" className="-m-1.5 p-1.5">
                 <img
                   alt=""
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  src={icon}
                   className="h-8 w-auto"
                 />
               </a>
