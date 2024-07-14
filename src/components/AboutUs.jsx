@@ -1,3 +1,4 @@
+import img from "../assets/about.jpg";
 const AboutMe = () => {
   const services = [
     {
@@ -50,45 +51,48 @@ const AboutMe = () => {
         <h2 className="text-indigo-600 font-extrabold text-4xl tracking-wide mb-4">
           عن الشركة
         </h2>
-        <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <p className="mt-2 md:text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-3xl">
           نقدم لكم أفضل الخدمات السياحية لضمان تجربة سفر لا تُنسى. من حجوزات
           الفنادق إلى تنظيم الفعاليات والجولات السياحية، نضمن لكم رحلة مريحة
           وممتعة.
         </p>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div>
-            <span className="block text-4xl font-extrabold text-gray-900">
-              06 سنوات
-            </span>
-            <span className="mt-1 block text-lg leading-6 font-medium text-gray-500">
-              خبرة
-            </span>
-          </div>
-          <div>
-            <span className="block text-4xl font-extrabold text-gray-900">
-              587+
-            </span>
-            <span className="mt-1 block text-lg leading-6 font-medium text-gray-500">
-              عملاء سعداء
-            </span>
-          </div>
-          <div>
-            <span className="block text-4xl font-extrabold text-gray-900">
-              350+
-            </span>
-            <span className="mt-1 block text-lg leading-6 font-medium text-gray-500">
-              مشاريع مُنجزة
-            </span>
-          </div>
-        </div>
-        <div className="mt-10 flex justify-center">
+
+        <div className="mt-10 md:flex justify-evenly gap-10">
           <img
-            className="h-32 w-32 rounded-full mx-auto"
-            src="https://via.placeholder.com/150"
+            className="h-80 w-80 rounded-full object-cover mb-4"
+            src={img}
             alt="الملف الشخصي"
           />
+
+          <div className="flex md:flex-col gap-6 justify-center items-center">
+            <div className="text-center">
+              <span className="block text-2xl font-extrabold text-gray-900">
+                06 سنوات
+              </span>
+              <span className="mt-1 block text-lg leading-6 font-medium text-gray-500">
+                من الخبرة
+              </span>
+            </div>
+            <div className="text-center">
+              <span className="block text-2xl font-extrabold text-gray-900">
+                587+
+              </span>
+              <span className="mt-1 block text-lg leading-6 font-medium text-gray-500">
+                عملاء راضون{" "}
+              </span>
+            </div>
+            <div className="text-center">
+              <span className="block text-2xl font-extrabold text-gray-900">
+                350+
+              </span>
+              <span className="mt-1 block text-lg leading-6 font-medium text-gray-500">
+                خدمات مقدمة{" "}
+              </span>
+            </div>
+          </div>
         </div>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (
             <div key={service.name} className="text-center">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
