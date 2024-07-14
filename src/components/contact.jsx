@@ -2,7 +2,7 @@ import { FaSnapchat, FaWhatsapp, FaPhone } from 'react-icons/fa';
 
 const ContactUs = () => {
   return (
-    <div className="bg-gray-50 py-12">
+    <div className=" py-12" id='contact'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">

@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import TravelForm from "./Form";
+import TravelForm from "./Form"; // Adjust the import path as needed
 
 const navigation = [
-  { name: "عن الشركة", href: "#" },
-  { name: "الفنادق", href: "#" },
-  { name: "عروض", href: "#" },
-  { name: "فعاليات", href: "#" },
+  { name: "عن الشركة", href: "#about" },
+  { name: "الفنادق", href: "#hotels" },
+  { name: "عروض", href: "#offers" },
+  { name: "فعاليات", href: "#events" },
 ];
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className="bg-white" dir="rtl">
@@ -22,7 +26,7 @@ export default function Example() {
           className="flex items-center justify-between p-6 lg:px-8"
         >
           <div className="flex lg:flex-1">
-            <span className=" text-xl font-medium text-indigo-600 -m-1.5 p-1.5">
+            <span className="text-xl font-medium text-indigo-600 -m-1.5 p-1.5">
               RusArabic
             </span>
             <a href="#" className="-m-1.5 p-1.5">
@@ -56,7 +60,7 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
-              href="#"
+              href="#contact"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               تواصل معنا <span aria-hidden="true">&rarr;</span>
@@ -65,7 +69,7 @@ export default function Example() {
         </nav>
         <Dialog
           open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
+          onClose={closeMobileMenu}
           className="lg:hidden"
         >
           <div className="fixed inset-0 z-50" />
@@ -95,6 +99,7 @@ export default function Example() {
                       key={item.name}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      onClick={closeMobileMenu}
                     >
                       {item.name}
                     </a>
@@ -102,8 +107,9 @@ export default function Example() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="#"
+                    href="#contact"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={closeMobileMenu}
                   >
                     تواصل معنا
                   </a>

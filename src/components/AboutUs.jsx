@@ -45,7 +45,7 @@ const AboutMe = () => {
   ];
 
   return (
-    <div className="bg-white py-12">
+    <div className="bg-white py-12" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
           عن الشركة
