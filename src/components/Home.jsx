@@ -137,9 +137,9 @@ export default function Example() {
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               اكتشف المزيد من عروضنا وخدماتنا.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
+              <a href="#offers" className="font-semibold text-indigo-600">
                 <span aria-hidden="true" className="absolute inset-0" />
-                اقرأ المزيد <span aria-hidden="true">&rarr;</span>
+                اعرف المزيد <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -160,10 +160,10 @@ export default function Example() {
                 ابدأ الآن
               </button>
               <a
-                href="#"
+                href="#about"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
-                تعلم المزيد <span aria-hidden="true">→</span>
+                اعرف المزيد <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

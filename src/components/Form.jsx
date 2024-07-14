@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TravelForm = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +10,9 @@ const TravelForm = () => {
     numberOfChildren: "",
     startDate: "",
     endDate: "",
+    numberOfDays: "",
     withBreakfast: false,
+    whatsappNumber: "",
   });
 
   const handleChange = (e) => {
@@ -19,10 +23,32 @@ const TravelForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
+    const response = await fetch("https://formspree.io/f/mqkozgdr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      toast.success("تم إرسال الطلب بنجاح!");
+      setFormData({
+        name: "",
+        numberOfPeople: "",
+        hasChildren: false,
+        numberOfChildren: "",
+        startDate: "",
+        endDate: "",
+        numberOfDays: "",
+        withBreakfast: false,
+        whatsappNumber: "",
+      });
+    } else {
+      toast.error("حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
+    }
   };
 
   return (
@@ -155,6 +181,20 @@ const TravelForm = () => {
                 مع الإفطار؟
               </label>
             </div>
+            <div>
+              <label htmlFor="whatsappNumber" className="sr-only">
+                رقم الواتساب
+              </label>
+              <input
+                type="tel"
+                name="whatsappNumber"
+                id="whatsappNumber"
+                placeholder="رقم الواتساب"
+                value={formData.whatsappNumber}
+                onChange={handleChange}
+                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
             <div className="mt-6">
               <button
                 type="submit"
@@ -166,6 +206,7 @@ const TravelForm = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
