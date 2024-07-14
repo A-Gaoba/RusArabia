@@ -153,7 +153,7 @@ export default function Example() {
           />
         </div>
         <div className="mx-auto max-w-2xl md:py-32 py-16 sm:py-40 lg:py-56">
-          <div className="md:mb-8 mb-4 sm:flex sm:justify-center">
+          <div className="md:mb-8 mb-6 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 md:text-sm text-xs leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               اكتشف المزيد من عروضنا وخدماتنا.{" "}
               <a href="#offers" className="font-semibold text-indigo-600">
@@ -171,7 +171,7 @@ export default function Example() {
               احتياجاتكم. سواء كنتم تبحثون عن فنادق فاخرة، أو رحلات مميزة، أو
               فعاليات شيقة، نحن هنا لنقدم لكم تجربة سفر لا تُنسى.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex items-center justify-center gap-x-6 mb-6 md:mb-0">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
