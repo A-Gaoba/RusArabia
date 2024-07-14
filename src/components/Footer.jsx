@@ -100,7 +100,8 @@ const Footer = () => {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8 text-center">
           <p className="text-sm text-gray-800">
-            &copy; 2024 RusArabia. جميع الحقوق محفوظة.
+            &copy; 2024 <a href="https://gaoba.vercel.app/">Gaoba</a>. جميع
+            الحقوق محفوظة.
           </p>
         </div>
       </div>
