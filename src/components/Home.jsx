@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import TravelForm from "./Form"; // Adjust the import path as needed
+import TravelForm from "./Form"; 
 
 const navigation = [
   { name: "عن الشركة", href: "#about" },
@@ -13,6 +13,21 @@ const navigation = [
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -20,14 +35,18 @@ export default function Example() {
 
   return (
     <div className="bg-white" dir="rtl">
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header
+        className={`top-0 left-0 z-50 w-full transition-all duration-300 ${
+          isSticky ? "fixed bg-white shadow-md" : "absolute"
+        }`}
+      >
         <nav
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
         >
           <div className="flex lg:flex-1">
             <span className="text-xl font-medium text-indigo-600 -m-1.5 p-1.5">
-              RusArabia
+              RusArabic
             </span>
             <a href="#" className="-m-1.5 p-1.5">
               <img
