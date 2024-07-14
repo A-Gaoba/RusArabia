@@ -27,7 +27,7 @@ export default function Example() {
         >
           <div className="flex lg:flex-1">
             <span className="text-xl font-medium text-indigo-600 -m-1.5 p-1.5">
-              RusArabic
+              RusArabia
             </span>
             <a href="#" className="-m-1.5 p-1.5">
               <img
