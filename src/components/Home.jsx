@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import TravelForm from "./Form"; 
+import TravelForm from "./Form";
 
 const navigation = [
   { name: "عن الشركة", href: "#about" },
@@ -46,7 +46,7 @@ export default function Example() {
         >
           <div className="flex lg:flex-1">
             <span className="text-xl font-medium text-indigo-600 -m-1.5 p-1.5">
-              RusArabic
+              <a href="#"> RusArabic</a>
             </span>
             <a href="#" className="-m-1.5 p-1.5">
               <img

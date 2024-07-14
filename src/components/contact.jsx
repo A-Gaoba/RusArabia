@@ -1,8 +1,40 @@
-import { FaSnapchat, FaWhatsapp, FaPhone } from 'react-icons/fa';
+import { useState } from "react";
+import { FaSnapchat, FaWhatsapp, FaPhone } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("https://formspree.io/f/mqkozgdr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      toast.success("تم إرسال الرسالة بنجاح!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      toast.error("حدث خطأ أثناء إرسال الرسالة. حاول مرة أخرى.");
+    }
+  };
+
   return (
-    <div className=" py-12" id='contact'>
+    <div className="py-12" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
@@ -12,7 +44,8 @@ const ContactUs = () => {
             نحن هنا لمساعدتك
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-            إذا كان لديك أي استفسارات أو تحتاج إلى أي مساعدة، لا تتردد في التواصل معنا عبر النموذج أدناه أو عبر وسائل الاتصال المختلفة.
+            إذا كان لديك أي استفسارات أو تحتاج إلى أي مساعدة، لا تتردد في
+            التواصل معنا عبر النموذج أدناه أو عبر وسائل الاتصال المختلفة.
           </p>
         </div>
         <div className="mt-12">
@@ -21,7 +54,7 @@ const ContactUs = () => {
               <h3 className="text-lg font-medium text-gray-900">
                 أرسل لنا رسالة
               </h3>
-              <form className="mt-6">
+              <form onSubmit={handleSubmit} className="mt-6">
                 <div className="grid grid-cols-1 gap-y-6">
                   <div>
                     <label htmlFor="name" className="sr-only">
@@ -33,6 +66,8 @@ const ContactUs = () => {
                       id="name"
                       autoComplete="name"
                       placeholder="الاسم"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
                     />
                   </div>
@@ -46,6 +81,8 @@ const ContactUs = () => {
                       id="email"
                       autoComplete="email"
                       placeholder="البريد الإلكتروني"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
                     />
                   </div>
@@ -58,6 +95,8 @@ const ContactUs = () => {
                       id="message"
                       rows="4"
                       placeholder="الرسالة"
+                      value={formData.message}
+                      onChange={handleChange}
                       className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
                     ></textarea>
                   </div>
@@ -78,13 +117,15 @@ const ContactUs = () => {
               </h3>
               <ul className="mt-6 space-y-4 text-gray-600 text-right">
                 <li>
-                  <span className="font-bold">العنوان:</span> شارع السلام، المدينة، الدولة
+                  <span className="font-bold">العنوان:</span> شارع السلام،
+                  المدينة، الدولة
                 </li>
                 <li>
                   <span className="font-bold">الهاتف:</span> +123 456 789
                 </li>
                 <li>
-                  <span className="font-bold">البريد الإلكتروني:</span> info@example.com
+                  <span className="font-bold">البريد الإلكتروني:</span>{" "}
+                  info@example.com
                 </li>
               </ul>
               <div className="mt-8 flex justify-center space-x-6 space-x-reverse">
@@ -96,7 +137,10 @@ const ContactUs = () => {
                   <FaWhatsapp className="h-8 w-8" />
                   <span className="sr-only">واتساب</span>
                 </a>
-                <a href="tel:+123456789" className="text-blue-500 hover:text-blue-600">
+                <a
+                  href="tel:+123456789"
+                  className="text-blue-500 hover:text-blue-600"
+                >
                   <FaPhone className="h-8 w-8" />
                   <span className="sr-only">هاتف</span>
                 </a>
@@ -105,6 +149,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
