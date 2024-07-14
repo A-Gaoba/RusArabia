@@ -8,6 +8,7 @@ const TravelForm = () => {
     numberOfPeople: "",
     hasChildren: false,
     numberOfChildren: "",
+    childrenAges: [],
     startDate: "",
     endDate: "",
     numberOfDays: "",
@@ -21,6 +22,12 @@ const TravelForm = () => {
       ...formData,
       [name]: type === "checkbox" ? checked : value,
     });
+  };
+
+  const handleChildrenAgeChange = (index, value) => {
+    const newChildrenAges = [...formData.childrenAges];
+    newChildrenAges[index] = value;
+    setFormData({ ...formData, childrenAges: newChildrenAges });
   };
 
   const handleSubmit = async (e) => {
@@ -40,6 +47,7 @@ const TravelForm = () => {
         numberOfPeople: "",
         hasChildren: false,
         numberOfChildren: "",
+        childrenAges: [],
         startDate: "",
         endDate: "",
         numberOfDays: "",
@@ -110,20 +118,48 @@ const TravelForm = () => {
               </label>
             </div>
             {formData.hasChildren && (
-              <div>
-                <label htmlFor="numberOfChildren" className="sr-only">
-                  عدد الأطفال
-                </label>
-                <input
-                  type="number"
-                  name="numberOfChildren"
-                  id="numberOfChildren"
-                  placeholder="عدد الأطفال"
-                  value={formData.numberOfChildren}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
-                />
-              </div>
+              <>
+                <div>
+                  <label htmlFor="numberOfChildren" className="sr-only">
+                    عدد الأطفال
+                  </label>
+                  <input
+                    type="number"
+                    name="numberOfChildren"
+                    id="numberOfChildren"
+                    placeholder="عدد الأطفال"
+                    value={formData.numberOfChildren}
+                    onChange={(e) => {
+                      handleChange(e);
+                      setFormData({
+                        ...formData,
+                        childrenAges: new Array(parseInt(e.target.value)).fill(
+                          ""
+                        ),
+                      });
+                    }}
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+                </div>
+                {formData.childrenAges.map((age, index) => (
+                  <div key={index}>
+                    <label htmlFor={`childAge${index}`} className="sr-only">
+                      عمر الطفل {index + 1}
+                    </label>
+                    <input
+                      type="number"
+                      name={`childAge${index}`}
+                      id={`childAge${index}`}
+                      placeholder={`عمر الطفل ${index + 1}`}
+                      value={age}
+                      onChange={(e) =>
+                        handleChildrenAgeChange(index, e.target.value)
+                      }
+                      className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                  </div>
+                ))}
+              </>
             )}
             <div>
               <label htmlFor="numberOfDays" className="sr-only">
