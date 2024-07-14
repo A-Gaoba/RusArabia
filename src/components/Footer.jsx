@@ -1,8 +1,6 @@
 import {
   FaFacebook,
-  FaTwitter,
   FaInstagram,
-  FaLinkedin,
   FaSnapchat,
   FaWhatsapp,
   FaPhone,
