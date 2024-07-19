@@ -1,7 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import EventForm from "./EventForm";
 
 const Events = () => {
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+
   const events = [
     {
       name: "كلاب الهاسكي",
@@ -126,11 +130,16 @@ const Events = () => {
       ],
     },
   ];
-
-  const [showAll, setShowAll] = useState(false);
-
   const handleShowAll = () => {
     setShowAll(true);
+  };
+
+  const handleBookEvent = (event) => {
+    setSelectedEvent(event);
+  };
+
+  const handleCloseForm = () => {
+    setSelectedEvent(null);
   };
 
   return (
@@ -141,7 +150,11 @@ const Events = () => {
         </h2>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.slice(0, showAll ? events.length : 6).map((event) => (
-            <EventCard key={event.name} event={event} />
+            <EventCard
+              key={event.name}
+              event={event}
+              onBook={() => handleBookEvent(event)}
+            />
           ))}
         </div>
         {!showAll && (
@@ -154,12 +167,17 @@ const Events = () => {
             </button>
           </div>
         )}
+        {selectedEvent && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <EventForm event={selectedEvent} onClose={handleCloseForm} />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, onBook }) => {
   const [selectedImage, setSelectedImage] = useState(event.images[0]);
 
   return (
@@ -190,6 +208,12 @@ const EventCard = ({ event }) => {
       <p className="mt-2 text-base leading-6 text-gray-500">
         {event.description}
       </p>
+      <button
+        onClick={onBook}
+        className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg"
+      >
+        حجز
+      </button>
     </div>
   );
 };
@@ -200,6 +224,7 @@ EventCard.propTypes = {
     description: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
+  onBook: PropTypes.func.isRequired,
 };
 
 export default Events;

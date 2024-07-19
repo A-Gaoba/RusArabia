@@ -168,10 +168,10 @@ const HotelsOffer = () => {
                 </svg>
               </button>
               <button
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-indigo-600 text-white rounded-full"
                 onClick={prevImage}
               >
-                &lt;
+                &gt;
               </button>
               <img
                 className="w-full h-auto rounded-md"
@@ -179,10 +179,10 @@ const HotelsOffer = () => {
                 alt={selectedHotel.name}
               />
               <button
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-indigo-600 text-white rounded-full"
                 onClick={nextImage}
               >
-                &gt;
+                &lt;
               </button>
             </div>
           </div>
