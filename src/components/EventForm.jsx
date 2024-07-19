@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { toast } from 'react-toastify';
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const EventForm = ({ event, onClose }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    numberOfTickets: '',
-    specialRequests: '',
+    name: "",
+    email: "",
+    phone: "",
+    numberOfTickets: "",
+    specialRequests: "",
   });
 
   const handleChange = (e) => {
@@ -19,29 +19,29 @@ const EventForm = ({ event, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://formspree.io/f/mqkozgdr', {
-        method: 'POST',
+      const response = await fetch("https://formspree.io/f/mqkozgdr", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ ...formData, event: event.name }),
       });
 
       if (response.ok) {
-        toast.success('تم إرسال طلبك بنجاح!');
+        toast.success("تم إرسال طلبك بنجاح!");
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          numberOfTickets: '',
-          specialRequests: '',
+          name: "",
+          email: "",
+          phone: "",
+          numberOfTickets: "",
+          specialRequests: "",
         });
-        onClose(); // Close the form after successful submission
+        onClose();
       } else {
-        toast.error('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
+        toast.error("حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
       }
     } catch (error) {
-      toast.error('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
+      toast.error("حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
     }
   };
 
